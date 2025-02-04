@@ -1,0 +1,56 @@
+# Build artifacts
+bin/
+obj/
+
+# Visual Studio cache files
+.vs/
+*.user
+*.suo
+*.csproj.user
+*.vcxproj.user
+*.json
+
+# Rider / VSCode
+.idea/
+*.sln.iml
+.vscode/
+
+# NuGet Packages
+**/packages/*
+!**/packages/build/
+!**/packages/repositories.config
+
+# OSX
+.DS_Store
+
+# Logs
+*.log
+Logs/
+
+# Resharper
+_.ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Test Coverage
+*.coverage
+*.coveragexml
+*.coverlet.*
+coverage/
+
+# Temp, Backup & Generated files
+*.ncrunch*
+*_i.c
+*_p.c
+*.ilk
+*.meta
+*.tmp
+*.obj
+*.pch
+*.idb
+*.class
+*.pdb
+
+# Web config transforms (Azure)
+*.Transform.*.config
+*.
