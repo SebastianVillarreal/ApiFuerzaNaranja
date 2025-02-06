@@ -10,5 +10,13 @@ namespace marcatel_api.Models
         public string Municipio {get; set;}
         public string Telefono {get; set;}
     }
+
+    public class GetRegistroModel : RegistroModel
+    {
+        public int Id  {get; set;}
+        public string FechaRegistro {get; set;}
+        
+        
+    }
 }
 

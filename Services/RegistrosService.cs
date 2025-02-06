@@ -41,6 +41,40 @@ namespace marcatel_api.Services
             }
         }
 
+        public List<GetRegistroModel> GetRegistros()
+        {
+            ArrayList parametros = new ArrayList();
+            ConexionDataAccess dac = new ConexionDataAccess(connection);
+            var lista = new List<GetRegistroModel>();
+            try
+            {
+                DataSet ds = dac.Fill("spObtenerRegistros", parametros);
+                if(ds.Tables.Count > 0)
+                {
+                    foreach(DataRow dr in ds.Tables[0].Rows)
+                    {
+                        lista.Add(new GetRegistroModel
+                        {
+                            Id = int.Parse(dr["Id"].ToString()),
+                            Nombre = dr["Nombre"].ToString(),
+                            ApPaterno = dr["ApPaterno"].ToString(),
+                            ApMaterno = dr["ApMaterno"].ToString(),
+                            Calle = dr["Calle"].ToString(),
+                            Colonia = dr["Colonia"].ToString(),
+                            Municipio = dr["Municipio"].ToString(),
+                            FechaRegistro = dr["FechaRegistro"].ToString()
+                        });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+                throw;
+            }
+            return lista;
+        }
+
 
 
 

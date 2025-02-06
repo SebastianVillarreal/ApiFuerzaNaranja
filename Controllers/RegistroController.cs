@@ -66,6 +66,38 @@ namespace marcatel_api.Controllers
 
         }
 
+        [HttpGet("GetRegistros")]
+        public  JsonResult GetRegistros( )
+        {
+            var objectResponse = Helper.GetStructResponse();
+            try
+            {
+                var resultados =  _ticketService.GetRegistros();
+                objectResponse.StatusCode = (int)HttpStatusCode.OK;
+                objectResponse.message = "data obtenida con exito";
+                objectResponse.success = true;
+                objectResponse.response = new
+                {
+                    data = resultados
+                };
+            }
+            catch (System.Exception ex)
+            {
+                Console.Write(ex.Message);
+                objectResponse.response = new
+                {
+                    data = false
+                    
+
+                };
+                objectResponse.message = ex.Message;
+            }
+
+
+            return new JsonResult(objectResponse);
+
+        }
+
         
 
     
